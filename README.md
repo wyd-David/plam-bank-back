@@ -1,6 +1,6 @@
 **银行科技岗必备后端项目：掌上AI银行项目（保姆级、持续更新）**
 
-https://t.zsxq.com/onfXM，这个星球是没有优惠
+https://t.zsxq.com/onfXM， 这个星球是没有优惠
 最近给大家有需要59优惠券，https://t.zsxq.com/rrOTW
 
 ![](images/星球优惠券.png)
