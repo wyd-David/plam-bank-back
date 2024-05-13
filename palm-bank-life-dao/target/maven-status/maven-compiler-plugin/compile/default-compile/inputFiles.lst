@@ -1,0 +1,17 @@
+/Users/jiangjinxu/Desktop/study-question/ta/palm-bank-life/palm-bank-life-dao/src/main/java/com/life/bank/palm/dao/user/pojo/UserTokenPO.java
+/Users/jiangjinxu/Desktop/study-question/ta/palm-bank-life/palm-bank-life-dao/src/main/java/com/life/bank/palm/dao/community/pojo/CommentPO.java
+/Users/jiangjinxu/Desktop/study-question/ta/palm-bank-life/palm-bank-life-dao/src/main/java/com/life/bank/palm/dao/trade/pojo/TradeRecordPO.java
+/Users/jiangjinxu/Desktop/study-question/ta/palm-bank-life/palm-bank-life-dao/src/main/java/com/life/bank/palm/dao/user/pojo/UserPO.java
+/Users/jiangjinxu/Desktop/study-question/ta/palm-bank-life/palm-bank-life-dao/src/main/java/com/life/bank/palm/dao/community/pojo/CommunityPostPO.java
+/Users/jiangjinxu/Desktop/study-question/ta/palm-bank-life/palm-bank-life-dao/src/main/java/com/life/bank/palm/dao/user/mapper/UserMapper.java
+/Users/jiangjinxu/Desktop/study-question/ta/palm-bank-life/palm-bank-life-dao/src/main/java/com/life/bank/palm/dao/trade/mapper/TradeBoardMapper.java
+/Users/jiangjinxu/Desktop/study-question/ta/palm-bank-life/palm-bank-life-dao/src/main/java/com/life/bank/palm/dao/trade/mapper/TradeRecordMapper.java
+/Users/jiangjinxu/Desktop/study-question/ta/palm-bank-life/palm-bank-life-dao/src/main/java/com/life/bank/palm/dao/community/mapper/CommentMapper.java
+/Users/jiangjinxu/Desktop/study-question/ta/palm-bank-life/palm-bank-life-dao/src/main/java/com/life/bank/palm/dao/es/search/mapper/CommunitySearchMapper.java
+/Users/jiangjinxu/Desktop/study-question/ta/palm-bank-life/palm-bank-life-dao/src/main/java/com/life/bank/palm/dao/community/pojo/CollectDataPO.java
+/Users/jiangjinxu/Desktop/study-question/ta/palm-bank-life/palm-bank-life-dao/src/main/java/com/life/bank/palm/dao/community/mapper/CommunityPostMapper.java
+/Users/jiangjinxu/Desktop/study-question/ta/palm-bank-life/palm-bank-life-dao/src/main/java/com/life/bank/palm/dao/community/pojo/ZanDataPO.java
+/Users/jiangjinxu/Desktop/study-question/ta/palm-bank-life/palm-bank-life-dao/src/main/java/com/life/bank/palm/dao/user/mapper/UserTokenMapper.java
+/Users/jiangjinxu/Desktop/study-question/ta/palm-bank-life/palm-bank-life-dao/src/main/java/com/life/bank/palm/dao/trade/pojo/TradeBoardPO.java
+/Users/jiangjinxu/Desktop/study-question/ta/palm-bank-life/palm-bank-life-dao/src/main/java/com/life/bank/palm/dao/community/mapper/ZanDataMapper.java
+/Users/jiangjinxu/Desktop/study-question/ta/palm-bank-life/palm-bank-life-dao/src/main/java/com/life/bank/palm/dao/community/mapper/CollectDataMapper.java
