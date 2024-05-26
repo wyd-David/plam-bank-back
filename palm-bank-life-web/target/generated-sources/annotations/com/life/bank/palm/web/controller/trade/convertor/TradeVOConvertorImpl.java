@@ -13,8 +13,8 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-05-13T21:50:07+0800",
-    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_221 (Oracle Corporation)"
+    date = "2024-05-26T20:04:55+0800",
+    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_371 (Oracle Corporation)"
 )
 public class TradeVOConvertorImpl implements TradeVOConvertor {
 
