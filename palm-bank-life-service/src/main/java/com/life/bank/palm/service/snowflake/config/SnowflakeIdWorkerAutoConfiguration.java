@@ -45,6 +45,7 @@ public class SnowflakeIdWorkerAutoConfiguration {
     @ConditionalOnMissingBean
     public SnowflakeIdWorker initMachineId() throws Exception {
         localIp = this.getIpAddress();
+        log.info("获取本机ip信息：localIp: {}", localIp);
         long ip = Long.parseLong(localIp.replaceAll("\\.", ""));
         machineId = Long.hashCode(ip) % 32;
         this.createMachineId();
