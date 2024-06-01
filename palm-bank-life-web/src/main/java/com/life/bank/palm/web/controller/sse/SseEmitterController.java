@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -28,8 +29,9 @@ public class SseEmitterController {
     @LoginRequired
     @PostMapping("connect")
     @ApiOperation("建立链接")
-    public CommonResponse<SseEmitter> connect() {
+    public CommonResponse<SseEmitter> connect(HttpServletResponse response) {
         SseEmitter connect = sseEmitterService.connect();
+        response.addHeader("Content-Type", "text/event-stream;charset=utf-8");
         return CommonResponse.buildSuccess(connect);
     }
 
