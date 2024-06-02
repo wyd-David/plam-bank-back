@@ -31,7 +31,8 @@ public class SseEmitterController {
     @ApiOperation("建立链接")
     public CommonResponse<SseEmitter> connect(HttpServletResponse response) {
         SseEmitter connect = sseEmitterService.connect();
-        response.addHeader("Content-Type", "text/event-stream;charset=utf-8");
+        response.setContentType("text/event-stream");
+        response.setCharacterEncoding("utf-8");
         return CommonResponse.buildSuccess(connect);
     }
 
