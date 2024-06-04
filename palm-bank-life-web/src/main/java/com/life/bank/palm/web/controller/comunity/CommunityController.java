@@ -3,14 +3,20 @@ package com.life.bank.palm.web.controller.comunity;
 import com.life.bank.palm.common.result.CommonResponse;
 import com.life.bank.palm.common.result.PageResult;
 import com.life.bank.palm.common.utils.CheckUtil;
+import com.life.bank.palm.service.community.BankCommentService;
 import com.life.bank.palm.service.community.CommunityPostService;
+import com.life.bank.palm.web.controller.comunity.convertor.CommentFactory;
 import com.life.bank.palm.web.controller.comunity.convertor.CommunityPostVoConvertor;
+import com.life.bank.palm.web.controller.comunity.vo.BankCommentVo;
 import com.life.bank.palm.web.controller.comunity.vo.CommunityPostVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author ：麻薯哥搞offer
@@ -24,6 +30,9 @@ public class CommunityController {
 
     @Autowired
     private CommunityPostService communityPostService;
+
+    @Autowired
+    private CommentFactory commentFactory;
 
     @PostMapping("post/create-one")
     @ApiOperation("新创建一个篇帖子")
@@ -52,6 +61,14 @@ public class CommunityController {
         PageResult index = communityPostService.index(1, 10);
         index.setResult(CommunityPostVoConvertor.INSTANCE.toRecords(index.getResult()));
         return CommonResponse.buildSuccess(index);
+    }
+
+    @GetMapping("post/comments")
+    @ApiOperation("查询评论")
+    public CommonResponse<List<BankCommentVo>> comments(@RequestParam(defaultValue = "1") @ApiParam("实体ID") Integer entityId,
+                                                        @RequestParam(defaultValue = "1") @ApiParam("实体类型") Integer entityType) {
+        List<BankCommentVo> bankCommentVos = commentFactory.buildCommentVoList(entityId, entityType);
+        return CommonResponse.buildSuccess(bankCommentVos);
     }
 
 }

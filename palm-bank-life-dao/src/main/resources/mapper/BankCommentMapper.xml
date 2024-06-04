@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.life.bank.palm.dao.community.mapper.BankCommentMapper">
+
+    <resultMap id="BaseResultMap" type="com.life.bank.palm.dao.community.pojo.BankCommentPO">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="entityId" column="entity_id" jdbcType="INTEGER"/>
+            <result property="entityType" column="entity_type" jdbcType="INTEGER"/>
+            <result property="commentContent" column="comment_content" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,entity_id,
+        entity_type,comment_content,create_time,
+        update_time
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from bank_comment
+        where  id = #{id,jdbcType=INTEGER} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from bank_comment
+        where  id = #{id,jdbcType=INTEGER} 
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.life.bank.palm.dao.community.pojo.BankCommentPO" useGeneratedKeys="true">
+        insert into bank_comment
+        ( id,user_id,entity_id
+        ,entity_type,comment_content,create_time
+        ,update_time)
+        values (#{id,jdbcType=INTEGER},#{userId,jdbcType=INTEGER},#{entityId,jdbcType=INTEGER}
+        ,#{entityType,jdbcType=INTEGER},#{commentContent,jdbcType=VARCHAR},#{createTime,jdbcType=TIMESTAMP}
+        ,#{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.life.bank.palm.dao.community.pojo.BankCommentPO" useGeneratedKeys="true">
+        insert into bank_comment
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="userId != null">user_id,</if>
+                <if test="entityId != null">entity_id,</if>
+                <if test="entityType != null">entity_type,</if>
+                <if test="commentContent != null">comment_content,</if>
+                <if test="createTime != null">create_time,</if>
+                <if test="updateTime != null">update_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id,jdbcType=INTEGER},</if>
+                <if test="userId != null">#{userId,jdbcType=INTEGER},</if>
+                <if test="entityId != null">#{entityId,jdbcType=INTEGER},</if>
+                <if test="entityType != null">#{entityType,jdbcType=INTEGER},</if>
+                <if test="commentContent != null">#{commentContent,jdbcType=VARCHAR},</if>
+                <if test="createTime != null">#{createTime,jdbcType=TIMESTAMP},</if>
+                <if test="updateTime != null">#{updateTime,jdbcType=TIMESTAMP},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.life.bank.palm.dao.community.pojo.BankCommentPO">
+        update bank_comment
+        <set>
+                <if test="userId != null">
+                    user_id = #{userId,jdbcType=INTEGER},
+                </if>
+                <if test="entityId != null">
+                    entity_id = #{entityId,jdbcType=INTEGER},
+                </if>
+                <if test="entityType != null">
+                    entity_type = #{entityType,jdbcType=INTEGER},
+                </if>
+                <if test="commentContent != null">
+                    comment_content = #{commentContent,jdbcType=VARCHAR},
+                </if>
+                <if test="createTime != null">
+                    create_time = #{createTime,jdbcType=TIMESTAMP},
+                </if>
+                <if test="updateTime != null">
+                    update_time = #{updateTime,jdbcType=TIMESTAMP},
+                </if>
+        </set>
+        where   id = #{id,jdbcType=INTEGER} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.life.bank.palm.dao.community.pojo.BankCommentPO">
+        update bank_comment
+        set 
+            user_id =  #{userId,jdbcType=INTEGER},
+            entity_id =  #{entityId,jdbcType=INTEGER},
+            entity_type =  #{entityType,jdbcType=INTEGER},
+            comment_content =  #{commentContent,jdbcType=VARCHAR},
+            create_time =  #{createTime,jdbcType=TIMESTAMP},
+            update_time =  #{updateTime,jdbcType=TIMESTAMP}
+        where   id = #{id,jdbcType=INTEGER} 
+    </update>
+    <select id="selectByEntityIdAndEntityType" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from bank_comment
+        where
+        entity_id = #{entityId,jdbcType=NUMERIC}
+        AND entity_type = #{entityType,jdbcType=NUMERIC}
+    </select>
+    <select id="selectByEntityIdAndEntityIdIn" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from bank_comment
+        where
+        entity_id = #{entityId,jdbcType=NUMERIC}
+        AND entity_id in
+        <foreach collection="entityIdList" item="item" open="(" close=")" separator=",">
+            #{item,jdbcType=NUMERIC}
+        </foreach>
+    </select>
+    <select id="selectByEntityTypeAndEntityIdIn" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from bank_comment
+        where
+        entity_type = #{entityType,jdbcType=NUMERIC}
+        AND entity_id in
+        <foreach collection="entityIdList" item="item" open="(" close=")" separator=",">
+            #{item,jdbcType=NUMERIC}
+        </foreach>
+    </select>
+</mapper>

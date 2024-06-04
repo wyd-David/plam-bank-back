@@ -1,4 +1,5 @@
 package com.life.bank.palm.dao.user.mapper;
+import java.util.Collection;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -33,6 +34,9 @@ public interface UserMapper {
 
 
     List<UserPO> selectAllByIsDelete(@Param("isDelete") Integer isDelete);
+
+
+    List<UserPO> selectByIdIn(@Param("idList") Collection<Integer> idList);
 
 }
 

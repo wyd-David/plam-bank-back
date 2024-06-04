@@ -131,5 +131,15 @@
            OR card_id like concat('%', #{keywords,jdbcType=VARCHAR}, '%')
             and is_delete = 0
     </select>
+    <select id="selectByIdIn" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where
+        id in
+        <foreach collection="idList" item="item" open="(" close=")" separator=",">
+            #{item,jdbcType=NUMERIC}
+        </foreach>
+    </select>
 
 </mapper>

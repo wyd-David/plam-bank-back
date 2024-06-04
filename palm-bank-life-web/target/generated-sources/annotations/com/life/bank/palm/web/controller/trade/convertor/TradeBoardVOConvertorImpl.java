@@ -11,8 +11,8 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-05-26T20:04:54+0800",
-    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_371 (Oracle Corporation)"
+    date = "2024-06-04T16:56:04+0800",
+    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_221 (Oracle Corporation)"
 )
 public class TradeBoardVOConvertorImpl implements TradeBoardVOConvertor {
 
