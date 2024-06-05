@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import reactor.core.publisher.Flux;
 
 import java.time.Duration;
@@ -32,14 +33,9 @@ public class SseEmitterController {
     @LoginRequired
     @GetMapping(path = "connect", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     @ApiOperation("建立链接")
-    public Flux<ServerSentEvent<String>> connect() {
-        sseEmitterService.connect();
-        return Flux.interval(Duration.ofSeconds(1))
-                .map(sequence -> ServerSentEvent.<String>builder()
-                        .id(String.valueOf(sequence))
-                        .event("periodic-event")
-                        .data("SSE Data - " + LocalTime.now())
-                        .build());
+    public SseEmitter connect() {
+        return sseEmitterService.connect();
+//        return CommonResponse.buildSuccess(connect);
 
     }
 

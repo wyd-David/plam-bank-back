@@ -162,7 +162,7 @@ public class SseEmitterService {
                 log.error("向客户端{} 第{}次消息重推失败", userId, i + 1, ex);
                 continue;
             }
-            log.info("向客户端{} 第{}次消息重推成功", userId, i + 1);
+            log.info("向客户端{} 第{}次消息推送成功", userId, i + 1);
             return true;
         }
         return false;
