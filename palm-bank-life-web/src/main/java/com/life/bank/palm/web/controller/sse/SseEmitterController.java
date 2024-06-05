@@ -8,10 +8,15 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
+import reactor.core.publisher.Flux;
 
 import javax.servlet.http.HttpServletResponse;
+import java.time.Duration;
+import java.time.LocalTime;
 import java.util.List;
 
 @RestController
@@ -26,14 +31,19 @@ public class SseEmitterController {
      * 创建SSE连接
      *
      */
-    @LoginRequired
-    @PostMapping("connect")
+//    @LoginRequired
+    @GetMapping(path = "connect", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+
     @ApiOperation("建立链接")
-    public CommonResponse<SseEmitter> connect(HttpServletResponse response) {
-        SseEmitter connect = sseEmitterService.connect();
-        response.setContentType("text/event-stream");
-        response.setCharacterEncoding("utf-8");
-        return CommonResponse.buildSuccess(connect);
+    public Flux<ServerSentEvent<String>> connect(HttpServletResponse response) {
+        sseEmitterService.connect();
+        return Flux.interval(Duration.ofSeconds(1))
+                .map(sequence -> ServerSentEvent.<String>builder()
+                        .id(String.valueOf(sequence))
+                        .event("periodic-event")
+                        .data("SSE Data - " + LocalTime.now())
+                        .build());
+
     }
 
     @LoginRequired
