@@ -31,7 +31,7 @@ public class SseEmitterController {
      * 创建SSE连接
      *
      */
-//    @LoginRequired
+    @LoginRequired
     @GetMapping(path = "connect", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
 
     @ApiOperation("建立链接")
