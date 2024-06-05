@@ -1,8 +1,8 @@
 package com.life.bank.palm.web.controller.sse;
 
 import com.life.bank.palm.common.result.CommonResponse;
-import com.life.bank.palm.web.sse.SseEmitterService;
 import com.life.bank.palm.web.anotations.LoginRequired;
+import com.life.bank.palm.web.sse.SseEmitterService;
 import com.life.bank.palm.web.sse.bo.DeepSeekRequest;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -11,10 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import reactor.core.publisher.Flux;
 
-import javax.servlet.http.HttpServletResponse;
 import java.time.Duration;
 import java.time.LocalTime;
 import java.util.List;
@@ -33,7 +31,6 @@ public class SseEmitterController {
      */
     @LoginRequired
     @GetMapping(path = "connect", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-
     @ApiOperation("建立链接")
     public Flux<ServerSentEvent<String>> connect() {
         sseEmitterService.connect();
