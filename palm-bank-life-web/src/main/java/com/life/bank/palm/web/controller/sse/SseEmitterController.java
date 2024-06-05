@@ -35,7 +35,7 @@ public class SseEmitterController {
     @GetMapping(path = "connect", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
 
     @ApiOperation("建立链接")
-    public Flux<ServerSentEvent<String>> connect(HttpServletResponse response) {
+    public Flux<ServerSentEvent<String>> connect() {
         sseEmitterService.connect();
         return Flux.interval(Duration.ofSeconds(1))
                 .map(sequence -> ServerSentEvent.<String>builder()
