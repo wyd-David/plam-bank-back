@@ -12,7 +12,7 @@ public interface SseEmitterConstant {
     /**
      * even 数据类型
      */
-    String VOLUME_OVERVIEW = "ai-conversation";
+    String VOLUME_OVERVIEW = "message";
 
 
 
