@@ -130,7 +130,7 @@ public class TradeServiceReconciliationService {
 
         BigDecimal tradeAmount = new BigDecimal(recordPO.getAmount());
         BigDecimal payeeBalance = new BigDecimal(me.getBalance());
-        BigDecimal myBalance = new BigDecimal(payeeUser.getBalance());
+        BigDecimal myBalance = new BigDecimal(me.getBalance());
 
         recordPO.setPayUserId(me.getId());
         recordPO.setTradeType(TradeTypeEnum.TRADE.getCode());
