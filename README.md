@@ -22,7 +22,7 @@
 
 
 
-体验阅读链接：[ 薯条哥银行科技岗](https://qq5jbkqzduo.feishu.cn/wiki/FA4gwhMGqiVS4wko702cNc1Mnkf?from=from_copylink)
+体验阅读链接：[银行科技岗](https://qq5jbkqzduo.feishu.cn/wiki/FA4gwhMGqiVS4wko702cNc1Mnkf?from=from_copylink)
 # 一、项目介绍
 
 > 描述项目的背景、目标和预期效果及产出
